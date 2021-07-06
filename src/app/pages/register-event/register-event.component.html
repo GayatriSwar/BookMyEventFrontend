@@ -1,0 +1,120 @@
+<br><br><br><br>
+
+
+<div class="column">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Available Events</h2>
+      <a href="#/user" class="btn btn-sm btn-primary">Back</a>
+      <button class="btn btn-sm btn-primary" (click)="refreshEvents()" >Show Events</button>
+<div class="table-responsive">
+    <table class="table align-items-center table-dark table-flush">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Event Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Capacity</th>
+          <th scope="col">Approval Status</th>
+          <th scope="col">Register</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events;">
+          <td scope="row">
+                <span class="mb-0 text-sm">{{event.eventId}}</span>
+          </td>
+          <td>
+            {{event.eventName}}
+          </td>
+          <td>
+              {{event.dateTime}}
+          </td>
+          <td>
+            {{event.capacity}}
+          </td>          
+          <td>
+            {{event.approved}}
+          </td>
+          <td>
+            <div class="openBtn">
+              <button class="btn btn-primary" type="button" onclick="openForm()">Register</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="formPopup" id="popupForm" >
+
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+
+<div class="card-body px-lg-5 py-lg-5">
+  <form role="form"> 
+    <div class="form-group">
+      <div class="input-group input-group-alternative mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+        </div>
+        <input class="form-control" placeholder="Name" type="text" required>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <div class="input-group input-group-alternative mb-3">
+        <div class="input-group-prepend">
+          
+          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+        </div>
+        <input class="form-control" placeholder="Number of Seats to Book" type="text" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group input-group-alternative mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+        </div>
+        <input class="form-control" placeholder="Email" type="email" required>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="button" class="btn btn-primary mt-4">Book Seats
+      </button>
+
+      <button type="button" class="btn btn-primary mt-4"  onclick="closeForm()">Cancel
+      </button>
+    </div>
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<script>
+  function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+  }
+  function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+  }
+</script>
